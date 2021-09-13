@@ -9,6 +9,17 @@ package domain;
  *
  * @author Sandy Jessith Chico
  */
+
+//  public enum level{
+//        AMATEUR(1),
+//        INTERMEDIATE(2), 
+//        ADVANCED(3),
+//        SENIOR(4),
+//        EXPERT(5);
+//        
+//                
+//    }
+
 public class Category {
     private int categoryId;
     private Question [] questions;
@@ -22,6 +33,9 @@ public class Category {
     public Category(Prize prize, Question[] questions) {
           this.questions = questions;
     }
+    
+     
+    
 
     public static int getCategoryCounter() {
         return categoryCounter;
