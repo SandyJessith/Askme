@@ -1,0 +1,73 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package domain;
+
+/**
+ *
+ * @author Sandy Jessith Chico
+ */
+public class Round {
+    private int roundId;
+    private Player player;
+    private Category category;
+    private static int roundCounter;
+    public static final int MAX_ROUNDS = 5;
+
+    public Round() {
+        this.roundId = ++roundCounter;
+    }
+
+    public Round(int roundId, Player player, Category category) {
+        this.roundId = roundId;
+        this.player = player;
+        this.category = category;
+        
+        if(this.roundId == 1){
+            Prize prize = new Prize();
+            
+        }
+    }
+
+  
+      
+        
+    
+    public int getRoundId() {
+        return roundId;
+    }
+
+    public void setRoundId(int roundId) {
+        this.roundId = roundId;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Round{roundId=").append(roundId);
+        sb.append(", player=").append(player);
+        sb.append(", category=").append(category);
+        sb.append('}');
+        return sb.toString();
+    }
+    
+    
+}
