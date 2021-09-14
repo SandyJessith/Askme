@@ -5,11 +5,12 @@
  */
 package domain;
 
+import java.util.Arrays;
+
 /**
  *
  * @author Sandy Jessith Chico
  */
-
 //  public enum level{
 //        AMATEUR(1),
 //        INTERMEDIATE(2), 
@@ -19,10 +20,10 @@ package domain;
 //        
 //                
 //    }
-
 public class Category {
+
     private int categoryId;
-    private Question [] questions;
+    private Question[] questions;
     private static int categoryCounter;
     public static final int MAX_CATEGORIES = 5;
 
@@ -31,11 +32,8 @@ public class Category {
     }
 
     public Category(Prize prize, Question[] questions) {
-          this.questions = questions;
+        this.questions = questions;
     }
-    
-     
-    
 
     public static int getCategoryCounter() {
         return categoryCounter;
@@ -44,14 +42,10 @@ public class Category {
     public static void setCategoryCounter(int categoryCounter) {
         Category.categoryCounter = categoryCounter;
     }
-    
-    
 
     public int getCategoryId() {
         return categoryId;
     }
-
-   
 
     public Question[] getQuestions() {
         return questions;
@@ -69,6 +63,34 @@ public class Category {
         sb.append('}');
         return sb.toString();
     }
-    
-    
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 11 * hash + this.categoryId;
+        hash = 11 * hash + Arrays.deepHashCode(this.questions);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Category other = (Category) obj;
+        if (this.categoryId != other.categoryId) {
+            return false;
+        }
+        if (!Arrays.deepEquals(this.questions, other.questions)) {
+            return false;
+        }
+        return true;
+    }
+
 }

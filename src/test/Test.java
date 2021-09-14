@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
+import static java.lang.Thread.sleep;
 
 /**
  *
@@ -20,18 +21,22 @@ import java.util.Set;
  */
 public class Test {
 
-    public int input;
+    public static int input;
 
     public static void main(String[] args) {
 
-   
-              
-       
+        Contest.explainMetodology();
+
+        //Player information
+        Scanner sc = new Scanner(System.in);
+        Player player = new Player();
+
+        input = Contest.welcomePlayer(player, sc);
+
         Question questions = new Question();
-        
-        questions.startGame();
-        
-        
+
+        questions.startGame(input, player, sc);
+    
 
     }
 }

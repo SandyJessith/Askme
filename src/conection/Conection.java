@@ -13,17 +13,17 @@ import java.io.ObjectOutputStream;
  *
  * @author Sandy Jessith Chico
  */
-public class Conection implements IDataAccess{
+public class Conection implements IDataAccess {
 
     @Override
     public void save() {
-         Player player = new Player();
-         try{
+        Player player = new Player();
+        try {
             ObjectOutputStream writing_file = new ObjectOutputStream(new FileOutputStream("player.dat"));
             writing_file.writeObject(player);
             writing_file.close();
-        } catch(Exception e){
-            
+        } catch (Exception e) {
+
         }
     }
 
@@ -38,8 +38,8 @@ public class Conection implements IDataAccess{
     }
 
     @Override
-    public void showResults() {
+    public void showHistoric() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

@@ -15,6 +15,8 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import test.Test;
+import static java.lang.Thread.sleep;
+import java.util.Objects;
 
 /**
  *
@@ -31,10 +33,11 @@ public class Question {
     private String bOption;
     private String cOption;
     private String dOption;
-    public static int input;
+    private static boolean tester;
 
     public Question() {
 
+        this.tester = true;
     }
 
     public Question(int questionId, int category, String question, char Answer, String aOption, String bOption, String cOption, String dOption) {
@@ -112,6 +115,14 @@ public class Question {
         this.dOption = dOption;
     }
 
+    public static boolean isTester() {
+        return tester;
+    }
+
+    public static void setTester(boolean tester) {
+        Question.tester = tester;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -127,20 +138,8 @@ public class Question {
         return sb.toString();
     }
 
-    public static boolean tester = true;
+    public static void startGame(int input, Player player, Scanner sc) {
 
-    public static void startGame() {
-        
-
-        Contest.explainMetodology();
-        
-         //Player information
-        Scanner sc = new Scanner(System.in);
-        Player player = new Player();
-        
-        input = Contest.welcomePlayer(player, sc);
-
-        
         if (input == 1) {
 
             while (tester) {
@@ -151,7 +150,7 @@ public class Question {
 
                 Set<Question> questions = new HashSet();
                 ArrayList<Question> auxQuestions = new ArrayList<>();
-               // char respuestaUsuario;
+                // char respuestaUsuario;
 
                 //Here we create level 1 questions
                 questions.add(new Question(1, 1, "As the density of a material"
@@ -273,21 +272,18 @@ public class Question {
                         + "safe for entrance of people?\n", 'c', "a.Below 15% \n",
                         "b.Below 10%\n", "c.Below 1 %\n", "d. Below 0.5% \n"));
 
-              
-                //Question question = new Question();
-                
                 //Intermediate information
                 Contest.showPreviousInfo(counter, player);
 
-              //Start asking questions
-              Contest.askQuestions(questions, counter, auxQuestions, player, sc);
+                //Start asking questions
+                Contest.askQuestions(questions, counter, auxQuestions, player, sc);
 
                 counter++;
 
             }
 
         } else {
-           
+
             System.out.println("Contest finished");
             System.exit(0);
         }
@@ -295,7 +291,57 @@ public class Question {
 
     }
 
-   
-    
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 29 * hash + this.questionId;
+        hash = 29 * hash + this.category;
+        hash = 29 * hash + Objects.hashCode(this.question);
+        hash = 29 * hash + this.Answer;
+        hash = 29 * hash + Objects.hashCode(this.aOption);
+        hash = 29 * hash + Objects.hashCode(this.bOption);
+        hash = 29 * hash + Objects.hashCode(this.cOption);
+        hash = 29 * hash + Objects.hashCode(this.dOption);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Question other = (Question) obj;
+        if (this.questionId != other.questionId) {
+            return false;
+        }
+        if (this.category != other.category) {
+            return false;
+        }
+        if (this.Answer != other.Answer) {
+            return false;
+        }
+        if (!Objects.equals(this.question, other.question)) {
+            return false;
+        }
+        if (!Objects.equals(this.aOption, other.aOption)) {
+            return false;
+        }
+        if (!Objects.equals(this.bOption, other.bOption)) {
+            return false;
+        }
+        if (!Objects.equals(this.cOption, other.cOption)) {
+            return false;
+        }
+        if (!Objects.equals(this.dOption, other.dOption)) {
+            return false;
+        }
+        return true;
+    }
 
 }

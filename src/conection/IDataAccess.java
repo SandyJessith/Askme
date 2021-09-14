@@ -14,7 +14,7 @@ public interface IDataAccess {
     
     void save();
       
-    void showResults();
+    void showHistoric();
 
     void restore();
     

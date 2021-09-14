@@ -5,16 +5,13 @@
  */
 package domain;
 
-
-
 /**
  *
  * @author Sandy Jessith Chico
  */
 public class Prize {
-     
-    private int [] prizes = {0,100,200,300,400,500};
-        
+
+    private static int prizes[] = {0, 100, 200, 300, 400, 500};
 
     public Prize() {
     }
@@ -38,9 +35,5 @@ public class Prize {
         sb.append('}');
         return sb.toString();
     }
-    
-    
-    
-    
-    
+
 }
