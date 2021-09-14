@@ -5,11 +5,19 @@
  */
 package domain;
 
+import static java.lang.Thread.sleep;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+import test.Test;
+
 /**
  *
  * @author Sandy Jessith Chico
  */
 public class Round {
+
     private int roundId;
     private Player player;
     private Category category;
@@ -24,17 +32,13 @@ public class Round {
         this.roundId = roundId;
         this.player = player;
         this.category = category;
-        
-        if(this.roundId == 1){
+
+        if (this.roundId == 1) {
             Prize prize = new Prize();
-            
+
         }
     }
 
-  
-      
-        
-    
     public int getRoundId() {
         return roundId;
     }
@@ -68,6 +72,6 @@ public class Round {
         sb.append('}');
         return sb.toString();
     }
-    
+
     
 }

@@ -6,6 +6,7 @@
 package test;
 
 import domain.*;
+import static java.lang.Thread.sleep;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
@@ -17,17 +18,18 @@ import java.util.Set;
  */
 public class Test {
 
+    public int input;
+
     public static void main(String[] args) {
 
-       Question questions = new Question();
-       
-       questions.startGame();
-       
-          
+   
+              
+        
+        Question questions = new Question();
         
         
         
-        
+        questions.startGame();
 
     }
 }

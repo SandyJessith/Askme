@@ -14,8 +14,10 @@ public class Player extends Person {
     private int playerId;
     private int currentScore;
     private Prize prize;
+    private static int playerCounter; 
 
     public Player() {
+        this.playerId = ++playerCounter;
     }
 
     public Player(int playerId, String name, char playerType, int currentScore) {
