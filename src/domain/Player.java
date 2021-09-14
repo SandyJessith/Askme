@@ -9,7 +9,7 @@ package domain;
  *
  * @author Sandy Jessith Chico
  */
-public class Player extends Person {
+public class Player  extends Person {
 
     private int playerId;
     private int currentScore;
